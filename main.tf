@@ -1,17 +1,38 @@
-# Resources
+resource "google_compute_network" "vpc_network" {
+  name                    = var.vpc_network_name
+  auto_create_subnetworks = "true"
+}
+
+resource "google_compute_instance" "vm_instance" {
+  count        = 3
+  name         = var.vm_instance_name
+  machine_type = var.vm_instance_machine_type
+
+  boot_disk {
+    initialize_params {
+      image = "debian-cloud/debian-11"
+    }
+  }
+
+  network_interface {
+    # A default network is created for all GCP projects
+    network = google_compute_network.vpc_network.name
+    access_config {
+    }
+  }
+
+  tags = [var.resoucre_tags["location"], var.resoucre_tags["env"]]
+}
 
 # Modules
-
-# VPC
-
-# Cloud Storage Bucket Module
 module "cloud-storage" {
   source  = "terraform-google-modules/cloud-storage/google"
   version = "3.3.0"
   # insert the 3 required variables here
   names      = [var.bucket_name]
-  prefix     = "demo"
+  prefix     = var.prefixes[0]
   project_id = var.project_id
+  location   = var.location
   lifecycle_rules = [{
     condition = {
       age = 5
@@ -28,20 +49,3 @@ module "cloud-storage" {
     }
   }]
 }
-
-# Cloud Run Module
-module "cloud_run" {
-  source  = "GoogleCloudPlatform/cloud-run/google"
-  version = "~> 0.2.0"
-
-  # Required variables
-  service_name           = var.cloud_run_service_name
-  project_id             = var.project_id
-  location               = var.cloud_run_location
-  image                  = var.cloud_run_image
-  env_vars               = [{}]
-  env_secret_vars        = [{}]
-}
-
-# Cloud VM Instances
-

@@ -55,3 +55,15 @@ variable "resoucre_tags" {
   description = "Tags to set for all VM Resources"
   default = {}
 }
+
+variable "bucket_location" {
+  type        = string
+  description = "Bucket Location"
+  default = "US"
+}
+
+variable "prefixes" {
+  type = list(string)
+  description = "Prefix added to bucket name"
+  default = [ "dev", "stage", "qa", "prod"]
+}

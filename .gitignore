@@ -7,3 +7,7 @@
 
 # Crash log files
 crash.log
+
+# Node Modules
+node_modules
+
