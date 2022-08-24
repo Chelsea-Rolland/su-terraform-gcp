@@ -32,6 +32,7 @@ variable "bucket_name" {
 variable "storage_class" {
   type        = string
   description = "The storage class of the Storage Bucket to create"
+  default = "COLDLINE"
 }
 
 variable "vpc_network_name" {
@@ -50,20 +51,30 @@ variable "vm_instance_machine_type" {
   sensitive   = true
 }
 
-variable "resoucre_tags" {
-  type        = map(string)
-  description = "Tags to set for all VM Resources"
-  default = {}
-}
-
 variable "bucket_location" {
   type        = string
   description = "Bucket Location"
   default = "US"
 }
 
-variable "prefixes" {
-  type = list(string)
-  description = "Prefix added to bucket name"
-  default = [ "dev", "stage", "qa", "prod"]
+variable "vm_count" {
+  type = number
+  description = "Number of Desired VM Instances"
+  default = 1
+}
+
+variable "location" {
+  type = string
+  description = "Where the vm is housed"
+  default = "WEB"
+}
+
+variable "deleteObjAge" {
+  type = number
+  description = "Days from Creation Date to delete object"
+}
+
+variable "changeObjStateAge" {
+  type = number
+  description = "Days from Creation Date to change object storage class"
 }
