@@ -6,7 +6,7 @@ module "tfResources" {
     vpc_network_name = "tf-demo-stage"
     vm_instance_name = "tf-demo-stage"
     vm_instance_machine_type = "f1-micro"
-    vm_count = 4
+    vm_count = 3
     deleteObjAge = 9
     changeObjStateAge = 6
 }
