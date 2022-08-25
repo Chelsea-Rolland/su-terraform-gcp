@@ -66,7 +66,7 @@ variable "vm_count" {
 variable "location" {
   type        = string
   description = "Where the vm is housed"
-  default     = "WEB"
+  default     = "web"
 }
 
 variable "deleteObjAge" {

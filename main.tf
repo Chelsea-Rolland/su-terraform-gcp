@@ -35,7 +35,7 @@ module "cloud-storage" {
   version = "3.3.0"
   # insert the 3 required variables here
   names      = [var.bucket_name]
-  prefix     = "${var.app_environment}_${random_integer.randomInt.id}_"
+  prefix     = "${var.app_environment}-${random_integer.randomInt.id}"
   project_id = var.gcp_project_id
   location   = var.bucket_location
   versioning = {
@@ -43,17 +43,20 @@ module "cloud-storage" {
   }
   lifecycle_rules = [{
     condition = {
-      age = var.deleteObjAge
-    }
-    action = {
-      type = "Delete"
-    }
-    condition = {
       age = var.changeObjStateAge
     }
     action = {
       type          = "SetStorageClass"
       storage_class = var.storage_class
     }
-  }]
+    }, {
+    condition = {
+      age        = var.deleteObjAge
+      with_state = "ANY"
+    }
+    action = {
+      type = "Delete"
+    }
+    }
+  ]
 }

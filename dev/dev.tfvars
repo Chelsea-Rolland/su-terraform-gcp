@@ -1,9 +1,9 @@
     app_environment = "dev"
-    gcp_project_id = "playground-s-11-93e40f20"
-    bucket_name = "playground-s-11-93e40f20"
+    gcp_project_id = "<GCP-PROJECT-ID-HERE>"
+    bucket_name = "playground-s-11-07eecbc1"
     vpc_network_name = "tf-demo"
     vm_instance_name = "tf-demo"
     vm_instance_machine_type = "f1-micro"
     vm_count = 2
-    deleteObjAge = 5
-    changeObjStateAge = 3
+    deleteObjAge = 180
+    changeObjStateAge = 7
