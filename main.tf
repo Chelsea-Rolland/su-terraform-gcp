@@ -4,13 +4,13 @@ resource "random_integer" "randomInt" {
 }
 
 resource "google_compute_network" "vpc_network" {
-  name                    = var.vpc_network_name
+  name                    = "${var.vpc_network_name}-${var.app_environment}"
   auto_create_subnetworks = "true"
 }
 
 resource "google_compute_instance" "vm_instance" {
-  count        = var.vm-count
-  name         = "${var.vm_instance_name}-${[count.index]}"
+  count        = var.vm_count
+  name         = "${var.vm_instance_name}-${count.index}"
   machine_type = var.vm_instance_machine_type
 
   boot_disk {
@@ -35,8 +35,8 @@ module "cloud-storage" {
   version = "3.3.0"
   # insert the 3 required variables here
   names      = [var.bucket_name]
-  prefix     = "${var.app_environment}_${random_integer.randomInt.id}"
-  project_id = var.project_id
+  prefix     = "${var.app_environment}_${random_integer.randomInt.id}_"
+  project_id = var.gcp_project_id
   location   = var.bucket_location
   versioning = {
     first = true
@@ -44,7 +44,7 @@ module "cloud-storage" {
   lifecycle_rules = [{
     condition = {
       age = var.deleteObjAge
-      }
+    }
     action = {
       type = "Delete"
     }

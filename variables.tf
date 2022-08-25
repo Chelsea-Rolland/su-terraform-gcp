@@ -1,9 +1,9 @@
 variable "app_environment" {
-  type= string
+  type        = string
   description = "Project Specific Environment"
 }
 
-variable "project_id" {
+variable "gcp_project_id" {
   type        = string
   description = "GCP Project ID"
   default     = "<PROJECT_ID GOES HERE>"
@@ -32,7 +32,7 @@ variable "bucket_name" {
 variable "storage_class" {
   type        = string
   description = "The storage class of the Storage Bucket to create"
-  default = "COLDLINE"
+  default     = "COLDLINE"
 }
 
 variable "vpc_network_name" {
@@ -54,27 +54,27 @@ variable "vm_instance_machine_type" {
 variable "bucket_location" {
   type        = string
   description = "Bucket Location"
-  default = "US"
+  default     = "US"
 }
 
 variable "vm_count" {
-  type = number
+  type        = number
   description = "Number of Desired VM Instances"
-  default = 1
+  default     = 1
 }
 
 variable "location" {
-  type = string
+  type        = string
   description = "Where the vm is housed"
-  default = "WEB"
+  default     = "WEB"
 }
 
 variable "deleteObjAge" {
-  type = number
+  type        = number
   description = "Days from Creation Date to delete object"
 }
 
 variable "changeObjStateAge" {
-  type = number
+  type        = number
   description = "Days from Creation Date to change object storage class"
 }

@@ -1,7 +1,5 @@
-module "tfResources" {
-    source = "../../main"
     app_environment = "stage"
-    project_id = ""
+    gcp_project_id = ""
     bucket_name = ""
     vpc_network_name = "tf-demo-stage"
     vm_instance_name = "tf-demo-stage"
@@ -9,4 +7,3 @@ module "tfResources" {
     vm_count = 3
     deleteObjAge = 9
     changeObjStateAge = 6
-}
