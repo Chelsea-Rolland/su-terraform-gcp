@@ -1,8 +1,8 @@
     app_environment = "stage"
     gcp_project_id = ""
     bucket_name = ""
-    vpc_network_name = "tf-demo-stage"
-    vm_instance_name = "tf-demo-stage"
+    vpc_network_name = "tf-demo"
+    vm_instance_name = "tf-demo"
     vm_instance_machine_type = "f1-micro"
     vm_count = 3
     deleteObjAge = 9
