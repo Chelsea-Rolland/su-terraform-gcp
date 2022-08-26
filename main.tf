@@ -10,7 +10,7 @@ resource "google_compute_network" "vpc_network" {
 
 resource "google_compute_instance" "vm_instance" {
   count        = var.vm_count
-  name         = "${var.vm_instance_name}-${count.index}"
+  name         = "${var.vm_instance_name}-${count.index + 1}"
   machine_type = var.vm_instance_machine_type
 
   boot_disk {
