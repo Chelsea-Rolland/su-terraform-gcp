@@ -1,6 +1,6 @@
     app_environment = "dev"
     gcp_project_id = "<GCP-PROJECT-ID-HERE>"
-    bucket_name = "playground-s-11-07eecbc1"
+    bucket_name = "<GCP-PROJECT-ID-HERE>"
     vpc_network_name = "tf-demo"
     vm_instance_name = "tf-demo"
     vm_instance_machine_type = "f1-micro"
