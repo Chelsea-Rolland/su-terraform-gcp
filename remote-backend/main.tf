@@ -10,7 +10,7 @@ resource "random_integer" "randomInt" {
 }
 
 resource "google_storage_bucket" "tf-state" {
-    name          = "${var.app_environment}-${random_integer.randomInt.id}-tfState"
+    name          = "${var.app_environment}-${random_integer.randomInt.id}-tfstate"
     location      = var.bucket_location
     force_destroy = true
     versioning {
