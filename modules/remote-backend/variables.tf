@@ -1,8 +1,3 @@
-variable "app_environment" {
-  type        = string
-  description = "Project Specific Environment"
-}
-
 variable "gcp_project_id" {
   type        = string
   description = "GCP Project ID"

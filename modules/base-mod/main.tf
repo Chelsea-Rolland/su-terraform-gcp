@@ -10,7 +10,7 @@ resource "google_compute_network" "vpc_network" {
 
 resource "google_compute_instance" "vm_instance" {
   count        = var.vm_count
-  name         = "${var.vm_instance_name}-${count.index + 1}"
+  name         = "${var.app_environment}-${var.vm_instance_name}-${count.index + 1}"
   machine_type = var.vm_instance_machine_type
 
   boot_disk {
@@ -39,7 +39,7 @@ module "cloud-storage" {
   project_id = var.gcp_project_id
   location   = var.bucket_location
   versioning = {
-    first = true
+    enabled = true
   }
   lifecycle_rules = [{
     condition = {

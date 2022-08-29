@@ -1,9 +1,3 @@
-module "remote-backend" {
-  source = "../modules/remote-backend"
-  app_environment = "dev"
-  gcp_project_id = "<GCP-PROJECT-ID-HERE>"
-}
-
 module "base-mod" {
   source = "../modules/base-mod"
   app_environment = "dev"
