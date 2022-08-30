@@ -135,4 +135,4 @@ chmod +x run.sh
 ./run.sh <ENV> plan
 ./run.sh <ENV> apply
 ```
-### Thank you for attending my presentation regarding GCP Infrastructure management with Terraform :computer: :keyboard: :smile:
+### Thank you for attending my presentation about GCP Infrastructure Management with Terraform :computer: :keyboard: :smile:
