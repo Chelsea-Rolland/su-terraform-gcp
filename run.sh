@@ -27,7 +27,8 @@ if [ $# -gt 0 ]; then
             NEW_WKSP=$(terraform -chdir=./$TF_ENV workspace show)
             echo "New/Current Workspace ENV is [ $NEW_WKSP ]"
         fi
-    echo "COMPLETED TERRAFORM TASK - [ $2 ]"
+    terraform -chdir=./$TF_ENV validate
+    echo "COMPLETED TERRAFORM TASK - [ $2 ] and Validation"
     elif [ "$2" == "plan" ]; then
         terraform -chdir=./$TF_ENV workspace select $TF_ENV
         ENV_WRKSP1=$(terraform -chdir=./$TF_ENV workspace show)
@@ -40,12 +41,15 @@ if [ $# -gt 0 ]; then
         echo "Current Workspace ENV is [ $ENV_WRKSP2 ]"
         terraform -chdir=./$TF_ENV $2 "tf-$TF_ENV.tfplan"
         echo "COMPLETED TERRAFORM TASK - [ $2 ]"
-    else
+    elif [ "$2" == "destroy" ]; then
         terraform -chdir=./$TF_ENV workspace select $TF_ENV
         ENV_WRKSP3=$(terraform -chdir=./$TF_ENV workspace show)
         echo "Current Workspace ENV is [ $ENV_WRKSP3 ]"
         terraform -chdir=./$TF_ENV $2
         echo "COMPLETED TERRAFORM TASK - [ $2 ]"
+    else
+        echo "Something went wrong with TASK - [ $2 ]"
+        echo "Check Error Message and Syntax and check again"
     fi
 fi
 

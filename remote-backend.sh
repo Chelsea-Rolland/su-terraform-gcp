@@ -18,8 +18,8 @@ terraform apply "remote-backend.tfplan"
 echo "COMPLETED CREATING REMOTE BACKEND BUCKET"
 
 # Returning to home directory
-cd ../..
+cd ~
 
-echo "BACK IN ROOT DIRECTORY"
+echo "BACK IN HOME DIRECTORY"
 
 pwd
