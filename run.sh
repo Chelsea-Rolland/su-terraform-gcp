@@ -49,7 +49,7 @@ if [ $# -gt 0 ]; then
         echo "COMPLETED TERRAFORM TASK - [ $2 ]"
     else
         echo "Something went wrong with TASK - [ $2 ]"
-        echo "Check Error Message and Syntax and check again"
+        echo "Check Error Message and Syntax and run again"
     fi
 fi
 

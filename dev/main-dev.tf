@@ -6,7 +6,7 @@ module "base-mod" {
   vpc_network_name = "tf-demo"
   vm_instance_name = "tf-demo"
   vm_instance_machine_type = "f1-micro"
-  vm_count = 2
+  vm_count = 1
   deleteObjAge = 180
   changeObjStateAge = 7
 }
