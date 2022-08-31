@@ -72,7 +72,7 @@ terraform destroy
 terraform destroy -var-file="<VAR-FILE-NAME>.tfvars"
 ```
 
-Bonus). Now that you have worked through each terraform command, you can automate it by using it in a script. Create the script `remote-backend.sh` and copy the code from [here](https://github.com/Chelsea-Rolland/su-terraform-gcp/blob/main/remote-backend.sh). Try rebuilding the same infrastructure from the root folder by running the `remote-backend.sh` script
+Bonus). Now that you have worked through each terraform command, you can automate it by using it in a script. Create the script `remote-backend.sh` and copy the code from [here](https://github.com/Chelsea-Rolland/su-terraform-gcp/blob/main/remote-backend.sh). Try rebuilding the same infrastructure from the home folder by running the `remote-backend.sh` script
 ```bash
 ~ cd
 touch remote-backend.sh
@@ -110,12 +110,12 @@ cd ~/dev
 touch main-dev.tf backend-dev.tf
 ```
 
-14). Return to the root directory then create the script `run.sh` and copy the code from [here](https://github.com/Chelsea-Rolland/su-terraform-gcp/blob/main/run.sh). 
+14). Return to the home directory then create the script `run.sh` and copy the code from [here](https://github.com/Chelsea-Rolland/su-terraform-gcp/blob/main/run.sh). 
 ```bash
 cd ~
 touch run.sh
 ```
-15). Run the following command to return to the root directory, initialize the backend 1st then create a workspace based on the env.
+15). Run the following command to return to the home directory, initialize the backend 1st then create a workspace based on the env.
 ```bash
 chmod +x run.sh
 ./run.sh dev init
