@@ -74,7 +74,7 @@ terraform destroy -var-file="<VAR-FILE-NAME>.tfvars"
 
 Bonus). Now that you have worked through each terraform command, you can automate it by using it in a script. Create the script `remote-backend.sh` and copy the code from [here](https://github.com/Chelsea-Rolland/su-terraform-gcp/blob/main/remote-backend.sh). Try rebuilding the same infrastructure from the home folder by running the `remote-backend.sh` script
 ```bash
-~ cd
+cd ~
 touch remote-backend.sh
 ```
 ```bash
