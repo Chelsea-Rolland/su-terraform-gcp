@@ -93,6 +93,7 @@ Another benefit of Terraform is that you're able to use similar configurations f
 ```bash
 cd ~/modules
 mkdir base-mod
+cd base-mod
 touch main.tf providers.tf variables.tf
 ```
 
