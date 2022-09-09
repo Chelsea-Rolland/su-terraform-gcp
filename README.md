@@ -102,7 +102,7 @@ cd ~
 mkdir dev stage prod
 ```
 
-13). Inside of each env folder it should have its own main-<ENV>.tf and backend-<ENV>.tf. Copy the code from [here](). Make sure to input your data inside anything with <>. 
+13). Inside of each env folder it should have its own `main-<ENV>.tf` and `backend-<ENV>.tf`. Copy the code from [here](https://github.com/Chelsea-Rolland/su-terraform-gcp/tree/main/dev) and update it based on your environment. Make sure to input your data inside anything with <>. 
 
 ex.) Take the bucket name from the bucket we created in an earlier step and input it inside of the bucket property in `backend-<ENV>.tf`. Each workspace's state file will be in the same location.
 ```bash
